@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+
+:root{
+    --homepage-background-color: #F8F1DE;
+    --homepage-background-secondary-color: #f0e6ce;
+    --navbar-black: #1E1E1E;
+    --website-blue: #3A79B4;
+    --website-green: #1F9B0B;
+    --website-red: #D34646;
+    --website-white: #ffffff;
+    --website-light-grey: #dbdbdb;
+    --website-dark-grey: #aaaaaa;
+    --website-yellow: #F6980A;
+    --website-darker-grey: #6e6e6e;
+}
+
+body{
+    background-color: var(--homepage-background-color);
+    font-family: Arial;
+    margin: 0;
+}
+
+.css-navbar{
+    background-color: var(--navbar-black);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1vh 0;
+}
+
+.css-navbar li{
+    list-style: none;
+    margin: 0 5vh;
+    font-size: 20px;
+}
+
+.css-navbar li:first-child{
+    margin-right:auto;
+    margin-left: 5vw;
+}
+
+.css-about-us-link{
+    text-decoration: none;
+    color: var(--website-white);
+    transition-duration: 0.5s;
+}
+
+.css-about-us-link:hover{
+    color: var(--website-dark-grey);
+}
+
+.css-log-in-link{
+    text-decoration: none;
+    color: var(--website-white);
+    background-color: var(--website-green);
+    padding: 5px 10px;
+    border: 2px solid var(--website-green);
+    border-radius: 5px;
+    margin-right: 5vw;
+    transition-duration: 0.5s;
+}
+
+.css-log-in-link:hover{
+    background-color: var(--navbar-black);
+    border: 2px solid var(--website-green);
+    color: var(--website-green);
+}
+
+.css-full-page{
+    min-height: 100vh;
+    background-image: linear-gradient(to right, var(--homepage-background-secondary-color) 50%, var(--homepage-background-color) 50%);
+    background-size: 15vw 100%;
+}
+
+.css-logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30vh;
+}
+
+.css-motto{
+    text-align: center;
+    font-size: 24px;
+    padding-right: 30vw;
+    padding-left: 30vw;
+    color: var(--website-darker-grey);
+}
+
+.search-bar-container{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5vh;
+}
+
+.css-search-bar{
+    width: 40vw;
+    padding: 10px 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px;
+    border-color: var(--website-dark-grey);
+    background-color: var(--website-white);
+}
+
+.css-search-bar-input{
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 40vw;
+}
+
+.css-autofill-results ul{
+    margin: 0 0;
+    padding: 0 0;
+    list-style-type: none;
+    max-height: 15vh;
+    overflow-y: scroll;
+}
+
+.css-autofill-results ul li{
+    margin: 0 0;
+    padding: 5px 2px;
+}
+
+.css-autofill-results ul li a{
+    text-decoration: none;
+    color: var(--navbar-black);
+}
+
+.css-autofill-results ul li:hover{
+    background-color: var(--website-light-grey);
+}
+
+::placeholder{
+    font-size: 16px;
+    color: var(--website-dark-grey);
+}
+
+.css-full-page-two{
+    height: 100vh;
+    background-color: var(--navbar-black);
+}

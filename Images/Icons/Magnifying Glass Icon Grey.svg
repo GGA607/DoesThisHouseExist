@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="160.32498mm"
+   height="139.18231mm"
+   viewBox="0 0 160.32498 139.18231"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="Magnifying Glass Icon Gray.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.4274173"
+     inkscape:cx="257.10772"
+     inkscape:cy="292.48631"
+     inkscape:window-width="2256"
+     inkscape:window-height="1410"
+     inkscape:window-x="-11"
+     inkscape:window-y="1609"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-22.281422,-45.087573)">
+    <path
+       id="path1"
+       style="fill:#b2b2b2;stroke-width:0.264583;fill-opacity:1"
+       d="m 75.885291,45.088204 a 53.344662,53.344662 0 0 0 -34.455262,12.40131 53.344662,53.344662 0 0 0 -7.728727,73.926756 l 4.136182,4.66741 a 53.344662,53.344662 0 0 0 74.319496,1.22215 53.344662,53.344662 0 0 0 3.39411,-74.252314 53.344662,53.344662 0 0 0 -39.665799,-17.965312 z m 0.264583,15.220776 a 38.796116,38.796116 0 0 1 28.742946,14.083895 38.796116,38.796116 0 0 1 -4.87929,54.325365 38.796116,38.796116 0 0 1 -54.379106,-4.24367 l -1.154452,-1.39836 A 38.796116,38.796116 0 0 1 50.627401,68.879 38.796116,38.796116 0 0 1 76.149874,60.30898 Z" />
+    <rect
+       style="fill:#b2b2b2;fill-opacity:1;stroke-width:0.264583"
+       id="rect4"
+       width="75.255386"
+       height="14.828647"
+       x="175.02788"
+       y="22.441605"
+       transform="rotate(38.2672)" />
+  </g>
+</svg>

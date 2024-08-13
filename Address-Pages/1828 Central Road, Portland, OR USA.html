@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/AddressView.css">
+    <link rel="icon" href="../Images/Icons/House Icon Dark.svg">
+    <script src="../Data/Data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title class="page-title">Address</title>
+</head>
+<body>
+
+    <div class="content">
+        <div class="css-navbar">
+            <li><a href="../DoesThisHouseExist.html" class="css-navbar-logo"><img src="../Images/DoesThisHouseExistLogoDark.svg" height="32" width="auto"></a></li>
+
+            <li>
+
+                <div class="search-bar-container">
+                    <form action="#" class="css-search-bar">
+                        <div class="css-search-bar-input">
+                            <input type="text" placeholder="Search an address" name="searchbar" id="js-search-bar-inputs" class="css-search-bar-input">
+                            <img src="../Images/Icons/Magnifying Glass Icon Grey.svg" height="20px" width="auto" class="search-icon">
+                        </div>
+        
+                        <div class="css-autofill-results js-autofill-results ">
+                        </div>
+                    </form>
+                </div>  
+
+            </li>
+
+            <li><a href="#" class="css-about-us-link">About Us</a></li>
+            <li><a href="#" class="css-log-in-link">Log In</a></li>
+        </div>
+
+        <div class="address-info">
+            <h1 class="css-address-name js-address-name">0000 Street Name, City Name, ST, Country</h1>
+            <div class="under-address-info">
+                <li class="js-review-count">0 Reviews</li>
+                <li class="js-comment-count">0 Comments</li>
+            </div>
+        </div>
+
+        <p class="css-determination js-determination">According to our data...</p>
+
+        <div class="voting-section">
+
+            <div class="voting-section-info">
+                <p class="vote-title">Vote<p>
+                <p class="vote-description">Help others. Provide your feedback below. Does the address exist? Does the address belong to a house?</p>
+            </div>
+            <div class="vote-buttons">
+                <button class="css-exists-button js-exists-button">This House Exists</button>
+                <button class="css-not-exists-button js-not-exists-button">This House Does Not Exist</button>
+                <button class="css-exists-but-button js-exists-but-button">Exists, But is Not a House</button>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+        </div>
+        
+    </div>
+
+    <script>
+        const dataIndex = 3;
+        const currentAddress = addressList[dataIndex];
+
+        const pageTitle = document.querySelector('.page-title');
+        const addressDisplay = document.querySelector('.js-address-name');
+
+        addressDisplay.innerHTML = `${currentAddress.address}, ${currentAddress.city}, ${currentAddress.state} ${currentAddress.country}`;
+        pageTitle.innerHTML = `${currentAddress.address}, ${currentAddress.city}, ${currentAddress.state} ${currentAddress.country}`;
+
+        const reviewCount = document.querySelector('.js-review-count');
+
+        function calculateReviewCount(){
+            reviewCount.innerHTML = `${(currentAddress.exists + currentAddress.doesNotExist + currentAddress.existsBut) } Reviews`;
+        }
+
+        calculateReviewCount();
+    </script>
+
+    <script src="../Scripts/AddressView.js"></script>
+</body>
+</html>
