@@ -10,6 +10,17 @@ const addressList = [
         exists: 49,
         existsBut: 3,
         doesNotExist: 1,
+        doesNotExistTimes: [{
+                                day: 12,
+                                month: 3,
+                                year: 2024
+                            },
+                            {
+                                day: 14,
+                                month: 4,
+                                year: 2024
+                            }
+                        ]
     },
 
     {

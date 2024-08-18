@@ -53,6 +53,63 @@ const totalVotesDoughnutChart = new Chart("total-votes-doughnut-chart", {
     }
     });
 
+const date = new Date();
+console.log(`${date.getMonth()}/${date.getDate()}`);
+
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+function votesInAMonthCounter(month, year){
+    returnCount = 0;
+    for(let i = 0; i < currentAddress.doesNotExistTimes.length; i++){
+        if(currentAddress.doesNotExistTimes[i].month === month && currentAddress.doesNotExistTimes[i].year === year){
+            returnCount++;
+        }
+    }
+    return returnCount;
+}
+
+function calculateLastSixMonthsLabels(date){
+    const returnArray = [];
+
+    for(let i = 0; i < 6; i++){
+        
+        let subtractOperator = date - (5 - i);
+        
+        if(subtractOperator < 0){
+            subtractOperator += 12;
+        }
+        
+        returnArray.push(months[subtractOperator]);
+    }
+    return returnArray;
+}
+
+//Complete this
+function calculateLastSixMonthsTotals(date){
+
+}
+
+console.log(votesInAMonthCounter(3, 2024));
+
+//Calculate amount of votes in each month
+
+const doesNotExistHistogram = new Chart("does-not-exist-histogram", {
+    type: "line",
+    data: {
+        labels: calculateLastSixMonthsLabels(date.getMonth()),
+        datasets: [{
+            backgroundColor: '#D34646',
+            data: [2, 4, 6, 3]
+        }]
+    },
+    options: {
+        title:{
+            display: true,
+            text: ['Does Not Exist Votes Within The Last Six Months']
+        },
+        responsive: true
+    }
+    });
 
 /*
 The following section includes the javascript code for voting
@@ -109,8 +166,3 @@ function renderDetermination(){
 }
 
 renderDetermination();
-
-/*
-const date = new Date();
-console.log(date);
-*/
