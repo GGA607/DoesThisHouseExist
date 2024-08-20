@@ -54,7 +54,6 @@ const totalVotesDoughnutChart = new Chart("total-votes-doughnut-chart", {
     });
 
 const date = new Date();
-console.log(`${date.getMonth()}/${date.getDate()}`);
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -84,14 +83,27 @@ function calculateLastSixMonthsLabels(date){
     return returnArray;
 }
 
-//Complete this
 function calculateLastSixMonthsTotals(date){
+    
+    const returnArray = [];
 
+    for(let i = 0; i < 6; i++){
+        let thisMonth = date.getMonth() - (5 - i);
+        let thisYear = date.getFullYear();
+
+        console.log(`${thisMonth}, ${thisYear}`)
+
+        if(thisMonth < 0){
+            thisMonth = 12 - thisMonth;
+            thisYear--;
+        }
+
+        returnArray.push(votesInAMonthCounter(thisMonth, thisYear));
+        console.log(votesInAMonthCounter(thisMonth, thisYear));
+    }
+
+    return returnArray;
 }
-
-console.log(votesInAMonthCounter(3, 2024));
-
-//Calculate amount of votes in each month
 
 const doesNotExistHistogram = new Chart("does-not-exist-histogram", {
     type: "line",
@@ -99,7 +111,7 @@ const doesNotExistHistogram = new Chart("does-not-exist-histogram", {
         labels: calculateLastSixMonthsLabels(date.getMonth()),
         datasets: [{
             backgroundColor: '#D34646',
-            data: [2, 4, 6, 3]
+            data: calculateLastSixMonthsTotals(date),
         }]
     },
     options: {
