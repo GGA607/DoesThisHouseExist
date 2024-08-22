@@ -1,10 +1,12 @@
+//Initializes an object containing the date of the website when it is accessed
+const currentDate = new Date();
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 /*
 The following section includes the javascript code for the autofill function of the search bar
 */
 const autofillResults = document.querySelector('.js-autofill-results');
 const userInput = document.getElementById('js-search-bar-inputs');
-
 let autofillWords = []
 
 for(let i = 0; i < addressList.length; i++){
@@ -35,10 +37,6 @@ function renderAutofillResults(result){
 /*
 The following section includes the javascript code for the chart.js charts
 */
-
-//Initializes an object containing the date of the website when it is accessed
-const currentDate = new Date();
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 //Function for counting the number of items in a given an array with the same month and year
 function votesInAMonthCounter(month, year, dataArray){
@@ -86,7 +84,7 @@ const doesNotExistHistogram = new Chart("does-not-exist-histogram", {
         datasets: [{
             backgroundColor: '#D34646',
             label: 'Does Not Exist Votes',
-            data: calculateLastSixMonthsTotals(currentDate, currentAddress.doesNotExistTimes),
+            data: calculateLastSixMonthsTotals(currentDate, currentAddress.doesNotExist),
         }]
     },
     options: {
@@ -105,7 +103,7 @@ const existsButHistogram = new Chart("exists-but-histogram", {
         datasets: [{
             backgroundColor: '#F6980A',
             label: 'Exists But is Not a House Votes',
-            data: calculateLastSixMonthsTotals(currentDate, currentAddress.existsButTimes),
+            data: calculateLastSixMonthsTotals(currentDate, currentAddress.existsBut),
         }]
     },
     options: {
@@ -123,7 +121,7 @@ const totalVotesDoughnutChart = new Chart("total-votes-doughnut-chart", {
         labels: ['Exists', 'Does Not Exist', 'Exists But Isn\'t a House'],
         datasets: [{
             backgroundColor: ['#1F9B0B', '#D34646', '#F6980A'],
-            data: [currentAddress.exists, currentAddress.doesNotExist, currentAddress.existsBut]
+            data: [currentAddress.exists, currentAddress.doesNotExist.length, currentAddress.existsBut.length]
         }]
     },
     options: {
@@ -149,29 +147,27 @@ function hasVoted(buttonType){
         totalVotesDoughnutChart.data.datasets[0].data[0] = currentAddress.exists;
     }
     else if(buttonType == 'existsBut'){
-        currentAddress.existsBut++;
-        currentAddress.existsButTimes.push({
+        currentAddress.existsBut.push({
             day: currentDate.getDate(),
             month: currentDate.getMonth(),
             year: currentDate.getFullYear()
         });
-        totalVotesDoughnutChart.data.datasets[0].data[2] = currentAddress.existsBut;
-        existsButHistogram.data.datasets[0].data = calculateLastSixMonthsTotals(currentDate, currentAddress.existsButTimes);
+        totalVotesDoughnutChart.data.datasets[0].data[2] = currentAddress.existsBut.length;
+        existsButHistogram.data.datasets[0].data = calculateLastSixMonthsTotals(currentDate, currentAddress.existsBut);
         existsButHistogram.update();
     }
     else{
-        currentAddress.doesNotExist++;
-        currentAddress.doesNotExistTimes.push({
+        currentAddress.doesNotExist.push({
             day: currentDate.getDate(),
             month: currentDate.getMonth(),
             year: currentDate.getFullYear()
         });
-        totalVotesDoughnutChart.data.datasets[0].data[1] = currentAddress.doesNotExist;
-        doesNotExistHistogram.data.datasets[0].data = calculateLastSixMonthsTotals(currentDate, currentAddress.doesNotExistTimes);
+        totalVotesDoughnutChart.data.datasets[0].data[1] = currentAddress.doesNotExist.length;
+        doesNotExistHistogram.data.datasets[0].data = calculateLastSixMonthsTotals(currentDate, currentAddress.doesNotExist);
         doesNotExistHistogram.update();
     }
     votingDiv.innerHTML = '<p class="post-vote-message">Thank you for voting</p>';
-    calculateReviewCount();
+    renderReviewCount();
     renderDetermination();
     totalVotesDoughnutChart.update();
 }
@@ -193,8 +189,22 @@ let determinationMessage = 'Our data suggests...';
 const determination = document.querySelector('.js-determination');
 
 function renderDetermination(){
-    if(currentAddress.exists > (currentAddress.doesNotExist + currentAddress.existsBut)){
+
+    let marginOfError = Math.round(calculateReviewCount() * 0.25);
+
+    if(currentAddress.exists - (currentAddress.doesNotExist.length + currentAddress.existsBut.length) >= marginOfError){
         determinationMessage = 'According to our data, this address exists.';
+    }
+    else if((currentAddress.doesNotExist.length + currentAddress.existsBut.length) - currentAddress.exists >= marginOfError){
+        if(currentAddress.doesNotExist.length > currentAddress.existsBut.length){
+            determinationMessage = 'According to our data, this address does not exist.';
+        }
+        else if(currentAddress.existsBut.length > currentAddress.doesNotExist.length){
+            determinationMessage = 'According to our data, this address may be valid, but it likely does not belong to a residence.';
+        }
+    }
+    else{
+        determinationMessage = 'Our data cannnot determine if this house exists or not. You can help by voting.';
     }
     determination.innerHTML = determinationMessage;
 }

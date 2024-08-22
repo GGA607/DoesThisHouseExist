@@ -79,12 +79,15 @@
         const reviewCount = document.querySelector('.js-review-count');
 
         function calculateReviewCount(){
-            reviewCount.innerHTML = `${(currentAddress.exists + currentAddress.doesNotExist + currentAddress.existsBut) } Reviews`;
+            return currentAddress.exists + currentAddress.doesNotExist.length + currentAddress.existsBut.length
         }
 
-        calculateReviewCount();
-    </script>
+        function renderReviewCount(){
+            reviewCount.innerHTML = `${calculateReviewCount()} Reviews`;
+        }
 
+        renderReviewCount();
+    </script>
     <script src="../Scripts/AddressView.js"></script>
 </body>
 </html>

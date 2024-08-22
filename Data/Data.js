@@ -8,9 +8,7 @@ const addressList = [
         country: 'Canada',
         postalCode: '',
         exists: 49,
-        existsBut: 3,
-        doesNotExist: 1,
-        doesNotExistTimes: [{
+        doesNotExist: [{
                                 day: 12,
                                 month: 2,
                                 year: 2024
@@ -56,7 +54,7 @@ const addressList = [
                                 year: 2024
                             }
                         ],
-    existsButTimes: [{
+    existsBut: [{
                             day: 12,
                             month: 2,
                             year: 2024
