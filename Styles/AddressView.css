@@ -8,10 +8,10 @@
     --website-green: #1F9B0B;
     --website-red: #D34646;
     --website-white: #ffffff;
-    --website-light-grey: #dbdbdb;
-    --website-dark-grey: #aaaaaa;
+    --website-light-grey: rgb(219, 219, 219);
+    --website-dark-grey: rgb(170, 170, 170);
     --website-yellow: #F6980A;
-    --website-darker-grey: #6e6e6e;
+    --website-darker-grey: rgb(110, 110, 110);
 }
 
 body{
@@ -130,7 +130,7 @@ body{
     background-repeat: no-repeat;
     background-position: 60vw 20vh;
     background-size: 65%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .css-address-name{
@@ -239,5 +239,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     margin-top: 5vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding-top: 3vh;
 }
