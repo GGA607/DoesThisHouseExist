@@ -69,7 +69,7 @@ function calculateLastSixMonthsTotals(date, dataArray){
         let thisMonth = date.getMonth() - (5 - i);
         let thisYear = date.getFullYear();
         if(thisMonth < 0){
-            thisMonth = 12 - thisMonth;
+            thisMonth = 12 + thisMonth;
             thisYear--;
         }
         returnArray.push(votesInAMonthCounter(thisMonth, thisYear, dataArray));
